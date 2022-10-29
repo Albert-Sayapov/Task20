@@ -16,6 +16,7 @@ public class Main {
         for (int i = 0; i < text.length(); i++) {
             char letter = text.toLowerCase().charAt(i);
             int value = 0;
+
             if (Character.isLetter(letter)) {
                 if (!map.containsKey(letter)) {
                     value = 1;
@@ -27,6 +28,7 @@ public class Main {
                 }
             }
         }
+
         int max = -1;
         int min = Integer.MAX_VALUE;
         for (int amount : map.values()) {
@@ -36,7 +38,20 @@ public class Main {
                 min = amount;
             }
         }
-        System.out.println("Максимум " + max + "\n" + "Минимум " + min);
+        char maxLetter = ' ';
+        char minLetter = ' ';
+        for (Map.Entry<Character, Integer> kv : map.entrySet()) {
+            if (kv.getValue().equals(max)) {
+                maxLetter = kv.getKey();
+            } else if (kv.getValue().equals(min)) {
+                minLetter = kv.getKey();
+            }
+        }
+
+        System.out.println("Самая повторяющаяся в тексте буква - " + maxLetter
+                + "\n" + " Колчество " + max
+                + "\n" + "Самая редкая буква - " + minLetter
+                + "\n" + " Количество " + min);
 
         WordsChecker wordsChecker = new WordsChecker(text);
         System.out.println(wordsChecker.hasWord("incididunt"));
