@@ -2,21 +2,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WordsChecker {
-    String text;
-    List<String> words = new ArrayList<>();
+    protected String text;
+    protected List<String> words;
 
     public WordsChecker(String text) {
+        this.words = new ArrayList<>();
         this.text = text;
     }
 
     public boolean hasWord(String word) {
-        String[] parts = text.toLowerCase().split("\\P{IsAlphabetic}+");
+        String[] parts = this.text.toLowerCase().split("\\P{IsAlphabetic}+");
 
         for (String value : parts) {
-            words.add(value);
+            this.words.add(value);
         }
 
-        if (words.contains(word.toLowerCase())) {
+        if (this.words.contains(word.toLowerCase())) {
             return true;
         }
         return false;

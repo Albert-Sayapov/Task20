@@ -36,7 +36,7 @@ public class Main {
                 min = amount;
             }
         }
-        System.out.println(max + " " + min);
+        System.out.println("Максимум " + max + "\n" + "Минимум " + min);
 
         WordsChecker wordsChecker = new WordsChecker(text);
         System.out.println(wordsChecker.hasWord("incididunt"));
